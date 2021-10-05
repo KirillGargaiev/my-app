@@ -12,7 +12,7 @@ import Footer from "./components/Footer/Footer";
 
 
 const App = (props) => {
-
+  debugger;
   return (
     <BrowserRouter>
       <div className="app-wrapper">
@@ -20,7 +20,7 @@ const App = (props) => {
         <MenuBar dialogsData={props.state.messagesPage.dialogsData} messagesData={props.state.messagesPage.messagesData}/>
         <div className="app-wrapper-content">
           <Route path='/profile' render={ ()=> <Profile profilePage={props.state.profilePage} dispatch={props.dispatch}/> } />
-          <Route path='/dialogs'  render={ ()=> <Dialogs dialogsData={props.state.messagesPage.dialogsData} messagesData={props.state.messagesPage.messagesData}/> } />
+          <Route path='/dialogs'  render={ ()=> <Dialogs dialogsData={props.state.messagesPage.dialogsData} messagesData={props.state.messagesPage.messagesData} newMessagesText={props.state.messagesPage.newMessagesText}dispatch={props.dispatch}/> } />
           <Route path='/news'  render={ ()=> <News/> } />
           <Route path='/music'  render={ ()=> <Music/> } />
           <Route path='/settings'  render={ ()=> <Settings/> } />
