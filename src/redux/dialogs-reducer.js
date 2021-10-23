@@ -1,6 +1,9 @@
-const ADD_MESSAGE = "ADD-MESSAGE"
-const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT"
+const MessageProcess = {
+    ADD_MESSAGE: 'ADD_MESSAGE',
+    UPDATE_NEW_MESSAGE_TEXT: 'UPDATE_NEW_MESSAGE_TEXT'
+}
 
+//all fields must be initializing as null ([], '', 0, null)
 let initialState = {
     dialogsData: [
         { name: "Kostya", id: 1 },
@@ -16,7 +19,7 @@ let initialState = {
         { message: "What's up?", id: 4 },
         { message: "What's up?", id: 5 },
     ],
-    newMessagesText:"",
+    newMessagesText:"", // use single quote
 }
 
 const dialogsReducer = (state = initialState, action) => {
@@ -25,7 +28,7 @@ const dialogsReducer = (state = initialState, action) => {
             state.newMessagesText = action.messageText;
             return state;
         case ADD_MESSAGE:
-            let newMessage = {
+            let newMessage = { // newMessage not reinitialization in code, replace on const
                 id: state.messagesData.length+1,
                 message: state.newMessagesText,
             };
