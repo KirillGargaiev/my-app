@@ -3,6 +3,7 @@ const MessageProcess = {
     UPDATE_NEW_MESSAGE_TEXT: 'UPDATE_NEW_MESSAGE_TEXT'
 }
 
+//all fields must be initializing as null ([], '', 0, null)
 let initialState = {
     dialogsData: [
         { name: "Kostya", id: 1 },
@@ -18,7 +19,7 @@ let initialState = {
         { message: "What's up?", id: 4 },
         { message: "What's up?", id: 5 },
     ],
-    newMessagesText:"",
+    newMessagesText:'', // use single quote
 }
 
 const dialogsReducer = (state = initialState, action) => {
