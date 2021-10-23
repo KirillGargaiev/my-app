@@ -3,9 +3,6 @@ const MessageProcess = {
     UPDATE_NEW_MESSAGE_TEXT: 'UPDATE_NEW_MESSAGE_TEXT'
 }
 
-const ADD_MESSAGE = "ADD-MESSAGE"
-const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT"
-
 //all fields must be initializing as null ([], '', 0, null)
 let initialState = {
     dialogsData: [
@@ -27,6 +24,9 @@ let initialState = {
 
 const dialogsReducer = (state = initialState, action) => {
     switch(action.type){
+        case UPDATE_NEW_MESSAGE_TEXT:
+            state.newMessagesText = action.messageText;
+            return state;
         case ADD_MESSAGE:
             let newMessage = { // newMessage not reinitialization in code, replace on const
                 id: state.messagesData.length+1,
@@ -35,26 +35,12 @@ const dialogsReducer = (state = initialState, action) => {
             state.messagesData.push(newMessage);
             state.newMessagesText="";
             return state;
-        case UPDATE_NEW_MESSAGE_TEXT:
-            state.newMessagesText = action.messageText;
-            return state;
+
         default: return state;
     }
 }    
 
-// Delete as we are using MessageProcess
-export const addMessageActionCreator = () => {
-    return {
-        type: ADD_MESSAGE
-    }
-}
-
-// Delete as we are using MessageProcess
-export const updateNewMessageTextActionCreator = (text) => {
-    return {
-        type: UPDATE_NEW_MESSAGE_TEXT,
-        messageText: text
-    }
-}
+export const addMessageActionCreator = () => ({type: ADD_MESSAGE})
+export const updateNewMessageTextActionCreator = (text) => ({type: UPDATE_NEW_MESSAGE_TEXT,messageText: text})
 
 export default dialogsReducer;

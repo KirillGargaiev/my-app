@@ -12,7 +12,6 @@ import Footer from "./components/Footer/Footer";
 
 
 const App = (props) => {
-  debugger;
   return (
     <BrowserRouter>
       <div className="app-wrapper">

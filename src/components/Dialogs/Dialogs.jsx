@@ -4,7 +4,6 @@ import d from "./Dialogs.module.css";
 import Message from "./Message/Message";
 
 const Dialogs = (props) => {
-
   let newMessageElement = React.createRef();
 
   let dialogsElements = props.dialogsData.map((dialog) => (
@@ -14,9 +13,9 @@ const Dialogs = (props) => {
     <Message text={message.message} />
   ));
 
-  let updateNewMessageText = (props) => {
-    let text = newMessageElement.current.value;
-    props.updateNewMessageText(text);
+  let onNewMessageChange = () => {
+    let body = newMessageElement.current.value;
+    props.updateNewMessageBody(body)
   }
 
   let addMessage = () => {
@@ -28,10 +27,9 @@ const Dialogs = (props) => {
       <div className={d.dialogsItems}>{dialogsElements}</div>
       <div className={d.messages}>
         <div>{messageElement}</div>
-        <div><input onChange={updateNewMessageText} ref={newMessageElement} value={props.newMessagesText}/></div>
+        <div><input onChange={onNewMessageChange} ref={newMessageElement} value={props.newMessagesText}/></div>
         <div><button onClick={addMessage}>Add message</button></div>
       </div>
-      
     </div>
   );
 };

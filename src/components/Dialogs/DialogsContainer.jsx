@@ -7,22 +7,21 @@ const DialogsContainer = (props) => {
 
   let newMessagesText = state.messagesPage.newMessagesText;
 
-  let onMessageChange = (text) => {
-    let action = updateNewMessageTextActionCreator(text)
-    props.store.dispatch(action);
+  let addMessage = () => {
+    props.store.dispatch(addMessageActionCreator())
   }
 
-  let addMessage = () => {
-    let action = addMessageActionCreator();
-    props.store.dispatch(action)
+  let onMessageChange = (body) => {
+    props.store.dispatch(updateNewMessageTextActionCreator(body));
   }
 
   return (
-    <Dialogs updateNewMessageText={onMessageChange} 
+    <Dialogs updateNewMessageBody = {onMessageChange} 
              addMessage={addMessage}
              newMessagesText={newMessagesText}
              dialogsData = {state.messagesPage.dialogsData}
-             messagesData = {state.messagesPage.messagesData}/>
+             messagesData = {state.messagesPage.messagesData}
+             dialogsPage = {state.messagesPage}/>
   );
 };
 
