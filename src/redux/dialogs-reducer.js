@@ -19,7 +19,7 @@ let initialState = {
         { message: "What's up?", id: 4 },
         { message: "What's up?", id: 5 },
     ],
-    newMessagesText:'', // use single quote
+    newMessagesText:'',
 }
 
 const dialogsReducer = (state = initialState, action) => {
