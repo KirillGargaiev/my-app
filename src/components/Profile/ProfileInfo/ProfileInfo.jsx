@@ -5,7 +5,7 @@ const ProfileInfo = (props) => {
 return(
     <div>
         <div>
-            <img src="https://static.invenglobal.com/upload/image/2021/09/22/r1632297442836303.png"/>
+            <img src="https://img.otzyvua.net/2017/05/11/objora-set-supermarketov.png"/>
         </div>
         <div className={p.descriptionBlock}>
             Info
